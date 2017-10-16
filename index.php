@@ -52,8 +52,10 @@ if ($_GET) {
 
     <div class="container">
         <div class="starter-template">
-            <h1>Front Office</h1>
+            <h1>Front office</h1>
             <?= $content ?>
+
+            <!-- <?php echo $content ?> -->
         </div>
     </div>
 </body>
