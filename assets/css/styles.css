@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding-top: 50px;
+}
+
+.starter-template {
+    padding: 40px 15px;
+    text-align: center;
+}
+
+.image-back-office {
+    width: 50%;
+}
+
+.produit {
+    width: 300px;
+    float: left;
+}
+
+.produit img {
+    width: 100%;
+    position: relative;
+}
