@@ -1,11 +1,14 @@
 <?php
+$erreur = '';
 
 if ($_POST && !empty($_POST)) {
     //controle de la taille du pseudo
 
     if (strlen($_POST['pseudo']) <= 3 || strlen($_POST['pseudo']) > 20) {
-        $erreur .= '<div class="alert alert-danger"><p>Erreur taille pseudo</p> 
-            <p>* doit contenir entre 3 a 20 caractères!</p></div>';
+        $erreur .= '<div class="alert alert-danger">
+                        <b>Erreur taille pseudo:</b> 
+                        <p>* doit contenir entre 3 a 20 caractères!</p>
+                    </div>';
     }
 
     $resultat = exec_req("SELECT * FROM membre WHERE pseudo = '$_POST[pseudo]'");
@@ -29,12 +32,13 @@ if ($_POST && !empty($_POST)) {
 
         exec_req($insertQuery);
 
-        // header('location:' . URL . '?page=connexion&inscription=1');
+        header('location:' . URL . '?page=connexion&inscription=1');
     }
 
     $content .= $erreur;
 }
-$content .= '<form action="" method="post" style="max-width: 400px; margin: auto;">
+$content .= '<div class="container" style="max-width: 400px; margin: auto; margin-top: 25px;">
+    <form action="" method="post">
         <div class="form-group">
             <label for="pseudo">Pseudo</label>
             <input type="text" name="pseudo" class="form-control" id="pseudo" placeholder="Pseudo">
@@ -86,5 +90,6 @@ $content .= '<form action="" method="post" style="max-width: 400px; margin: auto
         </div>
 
         <button type="submit" class="btn btn-default">S\'inscrire</button>
-    </form>';
+    </form>
+    </div>';
 ?>

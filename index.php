@@ -43,8 +43,13 @@ if ($_GET) {
                 <ul class="nav navbar-nav">
                     <li><a href="?page=catalogue">Catalogue</a></li>
                     <li><a href="?page=panier">Panier</a></li>
+                    <?php if (isset($_SESSION['membre'])) : ?>
+                    <li><a href="?page=profil">Profil</a></li>
+                    <li><a href="?page=connexion&action=deconnexion">Déconnexion</a></li>
+                    <?php else : ?>
                     <li><a href="?page=inscription">S&apos;inscrire</a></li>
                     <li><a href="?page=connexion">Connexion</a></li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>
