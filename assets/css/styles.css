@@ -24,3 +24,11 @@ body {
     width: 100%;
     position: relative;
 }
+
+.info-liste {
+    list-style: none;
+}
+
+.info-liste .info-item {
+    background-color: lightblue;
+}
