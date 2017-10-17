@@ -21,7 +21,11 @@ body {
 
 .produit {
     width: 300px;
-    float: left;
+    background-color: lightblue;
+}
+
+.produit .produit-liste {
+    list-style: none;
 }
 
 .produit img {
