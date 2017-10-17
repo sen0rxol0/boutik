@@ -1,0 +1,55 @@
+version: '3'
+
+networks:
+  app-net:
+    driver: bridge
+
+services:
+
+    db:
+      image: mariadb
+      restart: always
+      environment:
+          MYSQL_DATABASE: 'boutique'
+          MYSQL_ROOT_PASSWORD: 'secret'
+          MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      networks:
+          - app-net
+
+    phpmyadmin:
+       image: phpmyadmin/phpmyadmin
+       container_name: phpmyadmin
+       environment:
+          PMA_ARBITRARY: '1'
+       restart: always
+       ports:
+          - '8000:80'
+       volumes:
+          - /sessions
+       links:
+          - db
+       networks:
+          - app-net
+
+    server:
+      image: 'nginx:alpine'    
+      volumes:
+         - .:/app
+         - ./.docker/vhost.conf:/etc/nginx/conf.d/default.conf:ro
+      ports:
+        - '8080:80'
+      environment:
+        - NGINX_HOST=boutik.dev
+        - NGINX_PORT=80
+      networks:
+        - app-net
+      command: nginx -g 'daemon off;'
+
+    phpfpm:
+      image: 'bitnami/php-fpm:latest'
+      ports:
+        - '9000:9000'
+      volumes:
+        - .:/app
+      networks:
+        - app-net

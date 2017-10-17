@@ -1,20 +1,19 @@
 <?php
 
 // Connexion a la BDD
-
-$bdd = 'mysql:host=localhost;dbname=boutique';
+$bdd = 'mysql:host=db;port=3306;dbname=boutique';
 $options =  [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING,
     PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
 ];
 
-$pdo = new PDO($bdd, 'root', '', $options);
+$pdo = new PDO($bdd, 'root', 'secret', $options);
 
-define('URL', 'http://localhost/base_site/');
-define('RACINE', $_SERVER['DOCUMENT_ROOT'] . '/base_site/');
+define('URL', 'http://localhost:8080/');
+define('RACINE', $_SERVER['DOCUMENT_ROOT'] . '/');
 
-// echo 'url : ' . URL . '<br>';
-// echo 'racine : ' . RACINE . '<br>';
+echo 'url : ' . URL . '<br>';
+echo 'racine : ' . RACINE . '<br>';
 
 // Récupération des fonctions
 require_once('fonctions.inc.php');
