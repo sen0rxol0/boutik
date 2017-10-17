@@ -2,13 +2,13 @@
 
 $res = $pdo->query('SELECT * FROM membre');
 
-$content .= '<table>'
+$content .= '<table class="table"><tr>'
 for ($i = 0; i < $res->columnCount(); i++) {
     $col = $res->getColumnMeta($i);
-    $content .= '<tr>' . $col['name'] . '</tr>';
+    $content .= '<th>' . $col['name'] . '</th>';
 }
 
-$content .= '</table>';
+$content .= '</tr></table>';
 // if ($res->columnCount() >= 1) {
 //     for ($i = 0; i < $res->columnCount(); i++) {
 //         $col = $res->getColumnMeta($i);
