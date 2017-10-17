@@ -45,7 +45,7 @@ if ($_GET && isset($_GET['page'])) {
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="?page=gestion-des-produits">Gestion des produits</a></li>
-                    <li><a href="?page=gention-des-membres">Gestion des membres</a></li>
+                    <li><a href="?page=gestion-des-membres">Gestion des membres</a></li>
                     <li><a href="?page=gestion-des-commandes">Gestion des commandes</a></li>
                 </ul>
             </div>
