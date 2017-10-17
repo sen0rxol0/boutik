@@ -16,12 +16,15 @@ define('RACINE', $_SERVER['DOCUMENT_ROOT'] . '/base_site/');
 // echo 'url : ' . URL . '<br>';
 // echo 'racine : ' . RACINE . '<br>';
 
-$content = '';
-
 // Récupération des fonctions
 require_once('fonctions.inc.php');
 
 // Démarrage de la session
 session_start();
+
+// definition des variables partages
+$content = '';
+
+$titrepage = '';
 
 ?>

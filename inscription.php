@@ -3,7 +3,7 @@ $erreur = '';
 
 if ($_POST && !empty($_POST)) {
     //controle de la taille du pseudo
-
+    
     if (strlen($_POST['pseudo']) <= 3 || strlen($_POST['pseudo']) > 20) {
         $erreur .= '<div class="alert alert-danger">
                         <b>Erreur taille pseudo:</b> 
@@ -30,7 +30,7 @@ if ($_POST && !empty($_POST)) {
             (pseudo, mdp, nom, prenom, email, civilite, ville, code_postal, adresse, date_enregistrement) VALUES ('$pseudo', '$mdp', '$nom', '$prenom', '$email', '$civilite', 
             '$ville', '$code_postal', '$adresse', NOW())";
 
-        exec_req($insertQuery);
+        $pdo->query($insertQuery);
 
         header('location:' . URL . '?page=connexion&inscription=1');
     }

@@ -6,6 +6,14 @@ $membre = $_SESSION['membre'];
 if (!$membre || ($membre && $membre['statut'] != 1)) {
     header('location:' . URL . '?page=connexion'); exit();
 }
+
+if ($_GET && isset($_GET['page'])) {
+    $file = $_GET['page'] . '.php';
+    
+    if (file_exists($file)) {
+        require_once($file); 
+    }
+}
 ?>
 
 <!DOCTYPE html>
