@@ -11,7 +11,7 @@ if ($_POST && !empty($_POST)) {
                     </div>';
     }
 
-    $resultat = exec_req("SELECT * FROM membre WHERE pseudo = '$_POST[pseudo]'");
+    $resultat = $pdo->query("SELECT * FROM membre WHERE pseudo = '$_POST[pseudo]'");
 
     if ($resultat->rowCount() >= 1) {
         $erreur .= '<div class="alert alert-danger">Pseudo déjà prise</div>';
@@ -27,7 +27,8 @@ if ($_POST && !empty($_POST)) {
         extract($_POST);
 
         $insertQuery = "INSERT INTO membre 
-            (pseudo, mdp, nom, prenom, email, civilite, ville, code_postal, adresse, date_enregistrement) VALUES ('$pseudo', '$mdp', '$nom', '$prenom', '$email', '$civilite', 
+            (pseudo, mdp, nom, prenom, email, civilite, ville, code_postal, adresse, date_enregistrement) 
+            VALUES ('$pseudo', '$mdp', '$nom', '$prenom', '$email', '$civilite', 
             '$ville', '$code_postal', '$adresse', NOW())";
 
         $pdo->query($insertQuery);
