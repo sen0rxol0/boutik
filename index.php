@@ -49,7 +49,11 @@ if ($_GET) {
                     <?php else : ?>
                     <li><a href="?page=inscription">S&apos;inscrire</a></li>
                     <li><a href="?page=connexion">Connexion</a></li>
+                    <?php endif; 
+                    if (isset($_SESSION['membre']) && $_SESSION['membre']['statut'] == 1) : ?>
+                    <li><a href="<?= URL ?>admin">Back Office</a></li>
                     <?php endif; ?>
+                    
                 </ul>
             </div>
         </div>
