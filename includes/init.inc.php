@@ -12,8 +12,8 @@ $pdo = new PDO($bdd, 'root', 'secret', $options);
 define('URL', 'http://localhost:8080/');
 define('RACINE', $_SERVER['DOCUMENT_ROOT'] . '/');
 
-echo 'url : ' . URL . '<br>';
-echo 'racine : ' . RACINE . '<br>';
+// echo 'url : ' . URL . '<br>';
+// echo 'racine : ' . RACINE . '<br>';
 
 // Récupération des fonctions
 require_once('fonctions.inc.php');
@@ -25,5 +25,4 @@ session_start();
 $content = '';
 
 $titrepage = '';
-
 ?>

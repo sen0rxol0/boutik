@@ -16,5 +16,7 @@ $content .= '<ul class="info-liste" style="list-style: none;">
                 <li class="info-item">Code Postal: <b>' . $code_postal . '</b></li>
                 <li class="info-item">Adresse: <b> ' . $adresse . '</b></li>
             </ul>';
+
+require_once('../layouts/base.php');
 ?>
 

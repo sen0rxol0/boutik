@@ -1,5 +1,4 @@
 <?php 
-
 $content .= "<h2>Catalogue</h2>";
 
 // $produits = $pdo->query('SELECT * FROM produit')->fetchAll(PDO::FETCH_ASSOC);
@@ -24,4 +23,5 @@ foreach($produits as $produit) {
 
 }
 
+require_once('../layouts/base.php');
 ?>

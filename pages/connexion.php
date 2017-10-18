@@ -89,4 +89,6 @@ $content .= '<div class="container" style="margin-top: 25px;">
     </div>
 </div>';
 
+
+require_once('../layouts/base.php');
 ?>

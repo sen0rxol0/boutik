@@ -1,18 +1,18 @@
 <?php
-require_once('../inc/init.inc.php');
-$titrepage = 'Boutik';
+require_once('../includes/init.inc.php');
 
 if ($_GET) { 
 // s'il y a une information dans l'url, c'est que l'internaute a clique sur l'un des liens
-    $file = RACINE . 'pages/' . $_GET['page'] . '.php';
+    $file = '../pages/' . $_GET['page'] . '.php';
+
+    // @todo : implement a switch on all the pages and show a 404
 
     if (file_exists($file)) {
         require_once($file);
     } else {
         $content .= '<div class="alert alert-danger">La demande n\'a pas pu aboutir</div>';
     }
+} else {
+    require_once('../pages/accueil.php');
 }
-?>
-<?php
-require_once('layouts/base.php');
 ?>

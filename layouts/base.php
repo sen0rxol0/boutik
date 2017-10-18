@@ -10,7 +10,7 @@
 </head>
 <body>
 
-    <?php require_once('inc/header.inc.php'); ?>
+    <?php require_once('../includes/header.inc.php'); ?>
 
     <div class="container">
         <div class="starter-template">
