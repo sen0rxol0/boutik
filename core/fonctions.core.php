@@ -22,4 +22,12 @@ function exec_req($req)
     return $resultat;
 }
 
+function isConnected() {
+    return isset($_SESSION['membre']);
+}
+
+function isAdmin() {
+    return $_SESSION['membre']['statut'] == 1;
+}
+
 ?>

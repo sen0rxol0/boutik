@@ -18,3 +18,5 @@ $content .= '<ul class="info-liste" style="list-style: none;">
             </ul>';
 ?>
 
+<?= $content ?>
+
