@@ -25,7 +25,8 @@ if ($_POST) {
 
     if (empty($erreur)) {
         $query = $pdo->prepare('SELECT * FROM membre WHERE pseudo = :pseudo');
-        $query->bindParam(':pseudo', $_POST['pseudo'], PDO::PARAM_STR)->execute();
+        $query->bindParam(':pseudo', $_POST['pseudo'], PDO::PARAM_STR);
+        $query->execute();
         
         if ($query->rowCount() != 0) {
             $membre = $query->fetch(PDO::FETCH_ASSOC);
@@ -33,18 +34,21 @@ if ($_POST) {
             if (password_verify($_POST['mdp'], $membre['mdp'])) {
 
                 extract($membre);
-                $_SESSION['membre']['pseudo'] = $pseudo;
-                $_SESSION['membre']['nom'] = $nom;
-                $_SESSION['membre']['prenom'] = $prenom;
-                $_SESSION['membre']['email'] = $email;
-                $_SESSION['membre']['civilite'] = $civilite;
-                $_SESSION['membre']['ville'] = $ville;
-                $_SESSION['membre']['code_postal'] = $code_postal;
-                $_SESSION['membre']['adresse'] = $adresse;
-                $_SESSION['membre']['statut'] = $statut;
 
+                $noSession = [
+                    'date_enregistrement',
+                    'date_modification',
+                    'mdp',
+                    'id_membre'
+                ];
 
-                // membre trouvée, mot de passe correct, alors on l'envoi vers la page profil
+                foreach ($membre as $idx => $val) {
+                    if (in_array($idx, $noSession)) {
+                        continue;
+                    }
+
+                    $_SESSION['membre'][$idx] = $val;
+                }
 
                 header('location:' . URL . '?page=profil');
 
@@ -63,7 +67,11 @@ if ($_POST) {
     $content .= $erreur;
 }
 
-$content .= '<div class="container" style="margin-top: 25px;">
+?>
+
+<?= $content ?>
+
+<div class="container" style="margin-top: 25px;">
     <div class="col-md-4">
         <div class="panel panel-default">
             <h3 class="panel-title">Connexion</h3>
@@ -85,7 +93,4 @@ $content .= '<div class="container" style="margin-top: 25px;">
             </form>
         </div>
     </div>
-</div>';
-?>
-
-<?= $content ?>
+</div>
