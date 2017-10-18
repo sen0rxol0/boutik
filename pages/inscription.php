@@ -11,9 +11,11 @@ if ($_POST && !empty($_POST)) {
                     </div>';
     }
 
-    $resultat = $pdo->query("SELECT * FROM membre WHERE pseudo = '$_POST[pseudo]'");
+    $query = $pdo->prepare('SELECT * FROM membre WHERE pseudo = :pseudo');
+    $query->bindParam(':pseudo', $_POST['pseudo'], PDO::PARAM_STR);
+    $query->execute();
 
-    if ($resultat->rowCount() >= 1) {
+    if ($query->rowCount() >= 1) {
         $erreur .= '<div class="alert alert-danger">Pseudo déjà prise</div>';
     }
 

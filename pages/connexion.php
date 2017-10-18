@@ -24,8 +24,10 @@ if ($_POST) {
     }
 
     if (empty($erreur)) {
-        $req = "SELECT * FROM membre WHERE pseudo = '$_POST[pseudo]'";
-        $query = $pdo->query($req);
+        $req = 'SELECT * FROM membre WHERE pseudo = :pseudo';
+        $query = $pdo->prepare($req);
+        $query->bindParam(':pseudo', $_POST['pseudo'], PDO::PARAM_STR);
+        $query->execute();
     
         if ($query->rowCount() != 0) {
             $membre = $query->fetch(PDO::FETCH_ASSOC);
