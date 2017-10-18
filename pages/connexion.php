@@ -3,10 +3,6 @@ if (isset($_GET['inscription'])) {
     $content .= '<div class="alert alert-success"> Votre inscription a été validée, vous pouvez désormais vous connecter! </div>';
 }
 
-if (isset($_SESSION['membre'])) {
-    header('location:' . URL . '?page=profil');
-}
-
 // S'il y a une action dans les arguments d'URL, alors j'unset la clé membre de la session.
 if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
     unset($_SESSION['membre']);

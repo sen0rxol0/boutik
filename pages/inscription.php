@@ -12,7 +12,8 @@ if ($_POST && !empty($_POST)) {
     }
 
     $query = $pdo->prepare('SELECT * FROM membre WHERE pseudo = :pseudo');
-    $query->bindParam(':pseudo', $_POST['pseudo'], PDO::PARAM_STR)->execute();
+    $query->bindParam(':pseudo', $_POST['pseudo'], PDO::PARAM_STR);
+    $query->execute();
 
     if ($query->rowCount() >= 1) {
         $erreur .= '<div class="alert alert-danger">Pseudo déjà prise</div>';
@@ -39,7 +40,11 @@ if ($_POST && !empty($_POST)) {
 
     $content .= $erreur;
 }
-$content .= '<div class="container" style="max-width: 400px; margin: auto; margin-top: 25px;">
+?>
+
+<?= $content ?>
+
+<div class="container" style="max-width: 400px; margin: auto; margin-top: 25px;">
     <form action="" method="post">
         <div class="form-group">
             <label for="pseudo">Pseudo</label>
@@ -93,7 +98,4 @@ $content .= '<div class="container" style="max-width: 400px; margin: auto; margi
 
         <button type="submit" class="btn btn-default">S\'inscrire</button>
     </form>
-    </div>';
-?>
-
-<?= $content ?>
+</div>
