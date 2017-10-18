@@ -1,18 +1,22 @@
 <?php 
 require_once('../includes/init.inc.php');
 
-$membre = $_SESSION['membre'];
-
-if (!$membre || ($membre && $membre['statut'] != 1)) {
-    header('location:' . URL . '?page=connexion'); exit();
-}
-
-if ($_GET && isset($_GET['page'])) {
-    $file = $_GET['page'] . '.php';
+if (!empty($_SESSION)) {
+    $membre = $_SESSION['membre'];
     
-    if (file_exists($file)) {
-        require_once($file); 
+    if (!$membre || ($membre && $membre['statut'] != 1)) {
+        header('location:' . URL . '?page=connexion'); exit();
     }
+    
+    if ($_GET && isset($_GET['page'])) {
+        $file = $_GET['page'] . '.php';
+        
+        if (file_exists($file)) {
+            require_once($file); 
+        }
+    }
+} else {
+    header('location:' . URL . '?page=connexion'); exit();
 }
 ?>
 

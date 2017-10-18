@@ -5,15 +5,19 @@ if ($_GET && $_GET['page']) {
     
     switch ($_GET['page']) {
         case 'catalogue':
+            $titrepage = 'Catalogue - Boutik';
         break;
         case 'profil':
+            $titrepage = 'Profile - Boutik';
         break;
         case 'inscription':
+            $titrepage = 'Inscription - Boutik';
         break;
         case 'connexion':
+            $titrepage = 'Connexion - Boutik';
         break;
         default:
-            $titrepage = '404';
+            $titrepage = '404 - Page introuvable - Boutik';
         break;
     }
 

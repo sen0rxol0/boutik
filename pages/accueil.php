@@ -1,4 +1,4 @@
 <?php
 ?>
 
-<h1>Front office Accueil</h1>
+<h1>Front office - Accueil</h1>

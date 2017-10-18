@@ -1,6 +1,4 @@
 <?php
-$titrepage = 'Connexion';
-
 if (isset($_GET['inscription'])) {
     $content .= '<div class="alert alert-success"> Votre inscription a été validée, vous pouvez désormais vous connecter! </div>';
 }
