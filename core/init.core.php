@@ -16,7 +16,7 @@ define('RACINE', $_SERVER['DOCUMENT_ROOT'] . '/');
 // echo 'racine : ' . RACINE . '<br>';
 
 // Récupération des fonctions
-require_once('fonctions.inc.php');
+require_once('fonctions.core.php');
 
 // Démarrage de la session
 session_start();

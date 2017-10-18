@@ -1,6 +1,4 @@
 <?php 
-$content .= "<h2>Catalogue</h2>";
-
 // $produits = $pdo->query('SELECT * FROM produit')->fetchAll(PDO::FETCH_ASSOC);
 
 $content .= '<div class="container-fluid">';
@@ -22,6 +20,8 @@ foreach($produits as $produit) {
                 </div>';
 
 }
-
-require_once('../layouts/base.php');
 ?>
+
+<h2>Catalogue</h2>
+
+<!-- <?= $content ?> -->

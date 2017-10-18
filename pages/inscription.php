@@ -93,7 +93,6 @@ $content .= '<div class="container" style="max-width: 400px; margin: auto; margi
         <button type="submit" class="btn btn-default">S\'inscrire</button>
     </form>
     </div>';
-
-
-require_once('../layouts/base.php');
 ?>
+
+<?= $content ?>

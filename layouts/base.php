@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,14 +13,10 @@
     <link rel="stylesheet" href="<?= URL ?>assets/css/styles.css">
 </head>
 <body>
-
     <?php require_once('../includes/header.inc.php'); ?>
 
-    <div class="container">
-        <div class="starter-template">
-            <h1>Front office</h1>
-            <?= $content ?>
-        </div>
-    </div>
+    <main class="container">
+        <?php include_once($includeFile) ?>
+    </main>
 </body>
 </html>

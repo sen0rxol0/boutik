@@ -1,18 +1,33 @@
 <?php
-require_once('../includes/init.inc.php');
+require_once('../core/init.core.php');
 
-if ($_GET) { 
-// s'il y a une information dans l'url, c'est que l'internaute a clique sur l'un des liens
+if ($_GET && $_GET['page']) { 
+    
+    switch ($_GET['page']) {
+        case 'catalogue':
+        break;
+        case 'profil':
+        break;
+        case 'inscription':
+        break;
+        case 'connexion':
+        break;
+        default:
+            $titrepage = '404';
+        break;
+    }
+
     $file = '../pages/' . $_GET['page'] . '.php';
 
-    // @todo : implement a switch on all the pages and show a 404
-
     if (file_exists($file)) {
-        require_once($file);
+        $includeFile = $file;
     } else {
         $content .= '<div class="alert alert-danger">La demande n\'a pas pu aboutir</div>';
     }
 } else {
-    require_once('../pages/accueil.php');
+    $titrepage = 'Accueil - Boutik';
+    $includeFile = '../pages/accueil.php';
 }
+
+require_once('../layouts/base.php');
 ?>

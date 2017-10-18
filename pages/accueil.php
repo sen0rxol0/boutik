@@ -1,5 +1,4 @@
 <?php
-$titrepage = 'Boutik';
-
-require_once('../layouts/base.php');
 ?>
+
+<h1>Front office Accueil</h1>
