@@ -16,6 +16,10 @@
     <?php require_once('../includes/header.inc.php'); ?>
 
     <main class="container">
+        <?php if ($content) {
+            echo $content;
+        } ?>
+        
         <?php include_once($includeFile) ?>
     </main>
 </body>

@@ -9,7 +9,9 @@ $options =  [
 
 $pdo = new PDO($bdd, 'root', 'secret', $options);
 
-define('URL', 'http://localhost:8080/');
+// echo $_SERVER['SERVER_PORT'];
+
+define('URL', 'http://' . $_SERVER['SERVER_NAME'] . ':8080/');
 define('RACINE', $_SERVER['DOCUMENT_ROOT'] . '/');
 
 // echo 'url : ' . URL . '<br>';
