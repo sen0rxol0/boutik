@@ -1,13 +1,14 @@
 <?php 
-require_once('../includes/init.inc.php');
+require_once('../core/init.core.php');
+
+// print_r($_SESSION);
 
 if (!empty($_SESSION)) {
-    $membre = $_SESSION['membre'];
-    
-    if (!$membre || ($membre && $membre['statut'] != 1)) {
+
+    if (isAuthenticated() && !isAdmin()) {
         header('location:' . URL . '?page=connexion'); exit();
     }
-    
+
     if ($_GET && isset($_GET['page'])) {
         $file = $_GET['page'] . '.php';
         
@@ -43,7 +44,7 @@ if (!empty($_SESSION)) {
                     <span class="icon-bar"></span>
                 </button>
 
-                <a href="<?= URL ?>" class="navbar-brand">Admin</a>
+                <a href="<?= URL ?>" class="navbar-brand">Boutik</a>
             </div>
 
             <div id="navbar" class="collapse navbar-collapse">

@@ -96,6 +96,6 @@ if ($_POST && !empty($_POST)) {
             <textarea id="adresse" class="form-control" rows="5" name="adresse"></textarea>
         </div>
 
-        <button type="submit" class="btn btn-default">S\'inscrire</button>
+        <button type="submit" class="btn btn-default">S'inscrire</button>
     </form>
 </div>

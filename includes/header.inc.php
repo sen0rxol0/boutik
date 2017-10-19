@@ -10,7 +10,7 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <a href="<?= URL ?>" class="navbar-brand">Boutique</a>
+            <a href="<?= URL ?>" class="navbar-brand">Boutik</a>
         </div>
 
         <div id="navbar" class="collapse navbar-collapse">
@@ -32,7 +32,7 @@
 
                 if (isAuthenticated() && isAdmin()) : ?>
                 
-                <li><a href="<?= URL ?>admin">Back Office</a></li>
+                <li><a href="<?= URL ?>/admin">Back Office</a></li>
 
                 <?php endif; ?>
                 
