@@ -11,14 +11,14 @@ if ($_GET && $_GET['page']) {
             $titrepage = 'Profile - Boutik';
         break;
         case 'inscription':
-            if (isConnected()) {
+            if (isAuthenticated()) {
                 header('location:' . URL . '?page=profil');
             }
 
             $titrepage = 'Inscription - Boutik';
         break;
         case 'connexion':
-            if (isConnected()) {
+            if (isAuthenticated()) {
                 header('location:' . URL . '?page=profil');
             }
             $titrepage = 'Connexion - Boutik';

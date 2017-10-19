@@ -18,7 +18,7 @@
                 <li><a href="?page=catalogue">Catalogue</a></li>
                 <li><a href="?page=panier">Panier</a></li>
 
-                <?php if (isConnected()) : ?>
+                <?php if (isAuthenticated()) : ?>
 
                 <li><a href="?page=profil">Profil</a></li>
                 <li><a href="?page=connexion&action=deconnexion">Déconnexion</a></li>
@@ -30,7 +30,7 @@
 
                 <?php endif; 
 
-                if (isConnected() && isAdmin()) : ?>
+                if (isAuthenticated() && isAdmin()) : ?>
                 
                 <li><a href="<?= URL ?>admin">Back Office</a></li>
 

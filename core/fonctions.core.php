@@ -22,7 +22,7 @@ function exec_req($req)
     return $resultat;
 }
 
-function isConnected() {
+function isAuthenticated() {
     return isset($_SESSION['membre']);
 }
 
