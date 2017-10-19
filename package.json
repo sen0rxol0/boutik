@@ -1,0 +1,27 @@
+{
+    "name": "boutik",
+    "version": "1.0.0",
+    "description": "Boutik built dependencies",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "sen0rxol0 <sen0rxol0@gmail.com>",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/sen0rxol0/boutik.git"
+    },
+    "license": "MIT",
+    "devDependencies": {
+      "autoprefixer": "^7.1.4",
+      "babel-core": "^6.26.0",
+      "babel-preset-env": "^1.6.0",
+      "babel-preset-minify": "^0.2.0",
+      "cssnano": "^3.10.0",
+      "gulp": "^3.9.1",
+      "gulp-babel": "^7.0.0",
+      "gulp-concat": "^2.6.1",
+      "gulp-postcss": "^7.0.0",
+      "gulp-sass": "^3.1.0",
+      "gulp-sourcemaps": "^2.6.1"
+    }
+  }
