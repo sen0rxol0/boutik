@@ -1,6 +1,7 @@
 'use strict';
 
-const gulp = require('gulp');
+const path = require('path'),
+        gulp = require('gulp');
     
 const sass = require('gulp-sass'),
     postcss = require('gulp-postcss'),
@@ -12,16 +13,25 @@ const sass = require('gulp-sass'),
 const babel = require('gulp-babel'),
     concat = require('gulp-concat');
 
+
+const src = path.join(__dirname, 'resources/assets'),
+    dist = path.join(__dirname, 'public/assets');
+
+
+// gulp.task('log', () => {
+//     console.log(src);
+// });
+
 gulp.task('js', () =>
-    gulp.src('src/assets/js/*.js')
+    gulp.src(`${src}js/*.js`)
         .pipe(sourcemaps.init())
         .pipe(babel({
             presets: ['env', 'minify'],
             comments: false
         }))
-        .pipe(concat('all.js'))
+        .pipe(concat('bundle.js'))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('public/assets/js'))
+        .pipe(gulp.dest(`${dist}/js`))
 );
 
     
@@ -31,17 +41,17 @@ gulp.task('sass', () => {
         cssnano()
     ];
 
-    return gulp.src('src/assets/sass/main.scss')
+    return gulp.src(`${src}/sass/main.scss`)
         .pipe(sourcemaps.write('.'))
         .pipe(sass().on('error', sass.logError))
         .pipe(postcss(plugins))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('public/assets/css'));
+        .pipe(gulp.dest(`${dist}/css/styles.css`));
 });
 
 gulp.task('watch', () => {
-    gulp.watch('./src/assets/sass/*.scss', ['sass']);
-    gulp.watch('./src/assets/js/*.js', ['js']);
+    gulp.watch(`${src}/sass/*.scss`, ['sass']);
+    gulp.watch(`${src}/js/*.js`, ['js']);
 });
 
-gulp.task('default', ['sass', 'js','watch']);
+gulp.task('default', ['sass', 'js', 'watch']);
