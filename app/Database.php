@@ -4,7 +4,8 @@ Namespace App;
 
 use \PDO;
 
-class Database {
+class Database 
+{
 
     private $pdo;
     private $db_host;
@@ -14,7 +15,8 @@ class Database {
     private $db_pass;
     private $pdo_options;
 
-    public function __construct($connection) {
+    public function __construct($connection) 
+    {
 
         extract($connection);
 
@@ -31,7 +33,8 @@ class Database {
         ];
     }
 
-    private function instantiatePDO() {
+    private function instantiatePDO() 
+    {
         if (!$this->pdo) {
             $db= "mysql:host={$this->db_host};port={$this->db_port};dbname={$this->db_name}";
 
@@ -44,24 +47,58 @@ class Database {
 
     // private function fettch
 
-    public function select($statement = '') {
+
+    public function query($statement = '', $values) 
+    {
         if (!empty($statement)) {
             $req = $this->instantiatePDO()->prepare($statement);
-            $req->execute();
+
+            if (count($values)) {
+                $req->execute($values);
+            } else {
+                $req->execute();
+            }
+
+            return $req;
+        }
+
+    }
+
+    public function select($statement = '', $values = []) 
+    {
+        if (!empty($statement)) {
+            $req = $this->instantiatePDO()->prepare($statement);
+
+            if (count($values)) {
+                $req->execute($values);
+            } else {
+                $req->execute();
+            }
+
             $res = $req->fetchAll();
             return $res;
         }
     }
 
-    public function insert($statement = '') {
-
+    public function insert($statement = '') 
+    {
+        if (!empty($statement)) {
+            $this->instantiatePDO()->query($statement);
+        }
     }
 
-    public function update($statement = '') {
-
+    public function update($statement = '') 
+    {
+        if (!empty($statement)) {
+            $this->instantiatePDO()->query($statement);
+        }
     }
 
-    public function delete($statement = '') {
+    public function delete($table = '', $values = []) 
+    {
+        foreach($values as $idx => $val) {
+            $this->instantiatePDO()->query("DELETE FROM {$table} WHERE {$idx} = '{$val}'");
+        }
 
     }
 }

@@ -11,9 +11,7 @@ if ($_POST && !empty($_POST)) {
                     </div>';
     }
 
-    $query = $pdo->prepare('SELECT * FROM membre WHERE pseudo = :pseudo');
-    $query->bindParam(':pseudo', $_POST['pseudo'], PDO::PARAM_STR);
-    $query->execute();
+    $query = $db->query('SELECT * FROM membre WHERE pseudo = ?', [$_POST['pseudo']]);
 
     if ($query->rowCount() >= 1) {
         $erreur .= '<div class="alert alert-danger">Pseudo déjà prise</div>';
@@ -28,12 +26,12 @@ if ($_POST && !empty($_POST)) {
 
         extract($_POST);
 
-        $insertQuery = "INSERT INTO membre 
+        $query = "INSERT INTO membre 
             (pseudo, mdp, nom, prenom, email, civilite, ville, code_postal, adresse, date_enregistrement) 
             VALUES ('$pseudo', '$mdp', '$nom', '$prenom', '$email', '$civilite', 
             '$ville', '$code_postal', '$adresse', NOW())";
 
-        $pdo->query($insertQuery);
+        $db->insert($query);
 
         header('location:' . URL . '?page=connexion&inscription=1');
     }

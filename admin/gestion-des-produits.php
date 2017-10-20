@@ -13,22 +13,22 @@ if ($_POST) {
 
     $id_produit = $_GET['id_produit'] ? $_GET['id_produit'] : 'NULL';
     
-    $replaceQuery = "REPLACE INTO produit 
+    $query = "REPLACE INTO produit 
         (id_produit, reference, categorie, titre, description, couleur, taille, sexe, photo, prix, stock) VALUES ('$id_produit', '$reference', '$categorie', '$titre', '$description', '$couleur', '$taille', '$sexe', 
         '$photoUrl', '$prix', '$stock')";
 
-    $pdo->query($replaceQuery);
+    $db->update($query);
 
     $content .= '<div class="alert alert-success"><p>Le produit à bien été ajouté</p></div>';
 }
 
 if (isset($_GET['action']) && $_GET['action'] == 'modifier') {
-    $res = $pdo->query("SELECT * FROM produit WHERE id_produit = '$_GET[id_produit]'");
-    $produit = $res->fetch(PDO::FETCH_ASSOC);
+    $res = $db->query("SELECT * FROM produit WHERE id_produit = '$_GET[id_produit]'");
+    $produit = $res->fetch();
 }
 
 if (isset($_GET['action']) && $_GET['action'] == 'supprimer') {
-    $pdo->query("DELETE FROM produit WHERE id_produit = '$_GET[id_produit]'");
+    $db->delete('produit', ['id_produit' => $_GET['id_produit']]);
 }
 
 $getValue = function ($val) use ($produit)
@@ -37,7 +37,7 @@ $getValue = function ($val) use ($produit)
 };
 
 
-$resultat = $pdo->query('SELECT * FROM produit');
+$resultat = $db->query('SELECT * FROM produit');
 
 $content .= '<table class="table"><tr>';
 
@@ -48,7 +48,7 @@ for ($i = 0; $i < $resultat->columnCount(); $i++) {
 $content .= '<th colspan="2">Action</th>';
 $content .= '</tr>';
 
-$produits = $resultat->fetchAll(PDO::FETCH_ASSOC);
+$produits = $resultat->fetchAll();
 
 foreach($produits as $col) {
     $content .= '<tr>';
@@ -61,9 +61,9 @@ foreach($produits as $col) {
         }
     }
 
-    $content .= '<td><a href="?page=gestion-des-produits&action=modifier&id_produit=' . $col['id_produit']. '">Modifier</a></td>';
+    $content .= '<td><a href="?page=gestion-des-produits&action=modifier&id_produit=' . $col->id_produit. '">Modifier</a></td>';
 
-    $content .= '<td><a href="?page=gestion-des-produits&action=supprimer&id_produit=' . $col['id_produit']. '">Supprimer</a></td>';
+    $content .= '<td><a href="?page=gestion-des-produits&action=supprimer&id_produit=' . $col->id_produit. '">Supprimer</a></td>';
 
     $content .= '</tr>';
 }
