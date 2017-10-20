@@ -1,5 +1,5 @@
 <?php
-namespace App;
+namespace App\Core;
 
 /**
  * An example of a general-purpose implementation that includes the optional
