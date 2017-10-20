@@ -1,13 +1,6 @@
 <?php
 
-// Connexion a la BDD
-$bdd = 'mysql:host=db;port=3306;dbname=boutique';
-$options =  [
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING,
-    PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
-];
-
-$pdo = new PDO($bdd, 'root', 'secret', $options);
+$GLOBALS['config'] = include './config.php';
 
 // echo $_SERVER['SERVER_PORT'];
 
@@ -17,8 +10,17 @@ define('RACINE', $_SERVER['DOCUMENT_ROOT'] . '/');
 // echo 'url : ' . URL . '<br>';
 // echo 'racine : ' . RACINE . '<br>';
 
+$db = "mysql:host={$config['dbhost']};port={$config['dbport']};dbname={$config['dbname']}";
+
+$options =  [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING,
+    PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
+];
+
+$pdo = new PDO($db, $config['dbuser'], $config['dbpass'], $options);
+
 // Récupération des fonctions
-require_once('fonctions.core.php');
+require_once('fonctions.php');
 
 // Démarrage de la session
 session_start();

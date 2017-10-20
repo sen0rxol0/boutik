@@ -1,5 +1,5 @@
 <?php 
-require_once('../core/init.core.php');
+require_once('../app/core/init.php');
 
 // print_r($_SESSION);
 

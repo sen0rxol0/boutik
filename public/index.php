@@ -1,11 +1,12 @@
 <?php
-require_once('../core/init.core.php');
+require_once('../app/core/init.php');
 
-$uri = explode('/', $_SERVER['REQUEST_URI']);
+// $request_uri = $_SERVER['REQUEST_URI'];
+// $uri = explode('/', $request_uri);
 
-prind_r($uri);
+// prind_r($uri);
 
-echo $_SERVER['REQUEST_URI'];
+// echo $request_uri;
 
 
 // Route it up!
