@@ -41,12 +41,12 @@ gulp.task('sass', () => {
         cssnano()
     ];
 
-    return gulp.src(`${src}/sass/main.scss`)
+    return gulp.src(`${src}/sass/styles.scss`)
         .pipe(sourcemaps.write('.'))
         .pipe(sass().on('error', sass.logError))
         .pipe(postcss(plugins))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(`${dist}/css/styles.css`));
+        .pipe(gulp.dest(`${dist}/css`));
 });
 
 gulp.task('watch', () => {

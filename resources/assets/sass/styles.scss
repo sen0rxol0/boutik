@@ -1,0 +1,37 @@
+@import 'base.scss';
+
+
+.navbar {
+    background-color: #fafafa;
+}
+
+.starter-template {
+    padding: 40px 15px;
+    text-align: center;
+}
+
+.image-back-office {
+    width: 50%;
+}
+
+.produit {
+    width: 300px;
+    background-color: lightblue;
+}
+
+.produit .produit-liste {
+    list-style: none;
+}
+
+.produit img {
+    width: 100%;
+    position: relative;
+}
+
+.info-liste {
+    list-style: none;
+}
+
+.info-liste .info-item {
+    background-color: lightblue;
+}
