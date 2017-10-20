@@ -26,7 +26,7 @@
                 <?php else : ?>
 
                 <li><a href="?page=inscription">S&apos;inscrire</a></li>
-                <li><a href="?page=connexion">Connexion</a></li>
+                <li><a href="/login">Connexion</a></li>
 
                 <?php endif; 
 

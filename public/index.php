@@ -1,6 +1,30 @@
 <?php
 require_once('../core/init.core.php');
 
+$uri = explode('/', $_SERVER['REQUEST_URI']);
+
+prind_r($uri);
+
+echo $_SERVER['REQUEST_URI'];
+
+
+// Route it up!
+// switch ($request_uri[0]) {
+//     // Home page
+//     case '/':
+//         require '../views/home.php';
+//         break;
+//     // About page
+//     case '/about':
+//         require '../views/about.php';
+//         break;
+//     // Everything else
+//     default:
+//         header('HTTP/1.0 404 Not Found');
+//         require '../views/404.php';
+//         break;
+// }
+
 if ($_GET && $_GET['page']) { 
     
     switch ($_GET['page']) {
