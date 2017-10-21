@@ -50,7 +50,7 @@ gulp.task('sass', () => {
 });
 
 gulp.task('watch', () => {
-    gulp.watch(`${src}/sass/*.scss`, ['sass']);
+    gulp.watch(`${src}/sass/*/*.scss`, ['sass']);
     gulp.watch(`${src}/js/*.js`, ['js']);
 });
 
