@@ -1,42 +1,32 @@
-<nav class="navbar navbar-dafault navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button class="navbar-toggle collapsed" type="button" 
-                data-toggle="collapse" data-target="#navbar" 
-                aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle Navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+<header id="header" class="header-main">
+    <div class="brand header-brand"><a href="/">Boutik</a></div>
 
-            <a href="<?= URL ?>" class="navbar-brand">Boutik</a>
-        </div>
+    <nav class="navbar header-navbar">
+        <ul class="nav-items navbar-nav">
+            <li class="nav-item"><a href="?page=catalogue">Catalogue</a></li>
+            <li class="nav-item"><a href="?page=panier">Panier</a></li>
 
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="?page=catalogue">Catalogue</a></li>
-                <li><a href="?page=panier">Panier</a></li>
+            <?php if (isAuthenticated()) : ?>
 
-                <?php if (isAuthenticated()) : ?>
+            <li class="nav-item"><a href="?page=profil">Profil</a></li>
+            <li class="nav-item"><a href="?page=connexion&action=deconnexion">Déconnexion</a></li>
 
-                <li><a href="?page=profil">Profil</a></li>
-                <li><a href="?page=connexion&action=deconnexion">Déconnexion</a></li>
+            <?php else : ?>
 
-                <?php else : ?>
+            <li class="nav-item"><a href="?page=inscription">S&apos;inscrire</a></li>
+            <li class="nav-item"><a href="?page=connexion">Connexion</a></li>
 
-                <li><a href="?page=inscription">S&apos;inscrire</a></li>
-                <li><a href="/login">Connexion</a></li>
+            <?php endif; 
 
-                <?php endif; 
+            if (isAuthenticated() && isAdmin()) : ?>
+            
+            <li class="nav-item"><a href="<?= URL ?>/admin">Back Office</a></li>
 
-                if (isAuthenticated() && isAdmin()) : ?>
-                
-                <li><a href="<?= URL ?>/admin">Back Office</a></li>
+            <?php endif; ?>
+        </ul>
+    </nav>
 
-                <?php endif; ?>
-                
-            </ul>
-        </div>
+    <div class="ham-wrapper">
+        <button class="ham-btn"></button>
     </div>
-</nav>
+</header>
