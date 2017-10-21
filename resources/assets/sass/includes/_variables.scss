@@ -1,0 +1,17 @@
+$screen-mobile : 'screen and (min-width: 360px)';
+$screen-mobile-large : 'screen and (min-width: 480px)';
+$screen-xsmall: 'screen and (max-width: 600px)';
+$screen-small-portrait: 'screen and (max-width: 720px)';
+$screen-small: 'screen and (min-width: 840px)';
+$screen-small-landscape: 'screen and (min-width: 960px)';
+$screen-medium: 'screen and (min-width: 1024px)';
+$screen-regular: 'screen and (min-width: 1280px)';
+$screen-large: 'screen and (min-width: 1440px)';
+$screen-xlarge: 'screen and (min-width: 1600px)';
+$screen-nonretina: 'screen and (-webkit-max-device-pixel-ratio: 1)';
+$screen-retina: 'screen and (min--moz-device-pixel-ratio: 1.5), 
+(-o-min-device-pixel-ratio: 3/2), 
+(-webkit-min-device-pixel-ratio: 1.5), 
+(min-device-pixel-ratio: 1.5), 
+(min-resolution: 144dpi), 
+(min-resolution: 1.5dppx)';

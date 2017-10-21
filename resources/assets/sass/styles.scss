@@ -1,9 +1,5 @@
-@import 'base.scss';
-
-
-.navbar {
-    background-color: #fafafa;
-}
+@import './includes/base';
+@import './components/header.scss';
 
 main.container {
     padding-top: 150px;

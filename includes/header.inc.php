@@ -1,4 +1,4 @@
-<header id="header" class="header-main">
+<header id="header" class="header">
     <div class="brand header-brand"><a href="/">Boutik</a></div>
 
     <nav class="navbar header-navbar">
@@ -26,7 +26,7 @@
         </ul>
     </nav>
 
-    <div class="ham-wrapper">
+    <div class="ham-wrapper header-ham">
         <button class="ham-btn"></button>
     </div>
 </header>

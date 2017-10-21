@@ -2,6 +2,7 @@
 
 @import 'reset';
 @import 'variables';
+@import 'mixins';
 
 *:not(body) {
     box-sizing: border-box;

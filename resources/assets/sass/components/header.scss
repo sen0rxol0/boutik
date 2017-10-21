@@ -1,0 +1,64 @@
+.header {
+    width: 100%;
+    height: 56px;
+    padding: 0;
+    background-color: lightblue;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    &-brand {
+        width: 120px;  
+        margin: auto 0;
+        
+        a {
+            font-size: 1.6rem;
+            text-decoration: none;
+        }
+    }
+
+    &-navbar {
+        height: 100%;
+        margin: auto;
+    }
+
+    &-ham {
+        display: none;
+        width: 48px;
+        height: 48px;
+        margin: auto 0;
+    }
+
+    @include breakpoint(medium) {
+		padding: 0 200px;
+	}
+}
+
+.navbar {
+
+    &-nav {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-flow: row;
+        justify-content: flex-start;
+        align-items: flex-end;
+    }
+
+    .nav-item {
+        height: 36px;
+        line-height: 36px;
+        margin: auto 0;
+        
+        &:not(:first-child) {
+            margin-left: 10px;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+    }
+}
