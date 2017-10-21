@@ -1,0 +1,23 @@
+// @mixin banner--sm() {
+//     .banner {
+//       font-size: 20px;
+//     }
+//   }
+
+// @function generate-includes($class, $size) {
+//     @return include breakpoint($size) {
+//         mixin #{$class}-at-#{$size} {
+//            .#{$class} {
+//                @content;
+//            }
+//         }
+//     }
+//     // @if $size == regular {
+       
+//     // }
+    
+//     // @return $some-number + $another-number
+    
+// }
+
+// @include generate-sizes("header-text", 12px, 20px, 40px);

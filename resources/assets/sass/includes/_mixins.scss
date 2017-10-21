@@ -1,45 +1,5 @@
-@mixin breakpoint($point) 		{
-	@if $point == retina {
-		@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { @content; }
-	}
-	@if $point == xxlarge {
-		@media screen and (min-width: 1920px) { @content; }
-	}
-	@if $point == xlarge {
-		@media #{$screen-xlarge} { @content; }
-	}
-	@if $point == large {
-		@media #{$screen-large}  { @content; }
-	}
-    @else if $point == regular {
-	    @media #{$screen-regular} { @content; }
-  	}
-  	@else if $point ==  medium {
-	    @media #{$screen-medium} { @content; }
-  	}
-	@else if $point ==  small-landscape {
-	    @media #{$screen-small-landscape} { @content; }
-  	}
-    @else if $point ==  small {
-	    @media #{$screen-small} { @content; }
-  	}
-	@else if $point ==  small-portrait {
-		@media #{$screen-small-portrait} { @content; }
-	}
-	@else if $point ==  xsmall {
-		@media #{$screen-xsmall} { @content; }
-	}
-	@else if $point ==  large-mobile {
-		@media #{$screen-mobile-large} { @content; }
-	}
-	@else if $point ==  mobile {
-		@media #{$screen-mobile} { @content; }
-	}
+@mixin breakpoint($point) {
+    @if map_has_key($screens, $point) {
+        @media #{map_get($screens, $point)} { @content; }
+    }
 }
-
-
-// @mixin respond-to($media) {
-//     @media only screen and #{$media} {
-//         @content;
-//     }
-// }
