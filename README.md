@@ -1,3 +1,3 @@
 ## E-commerce concept site built in raw PHP
 
-under development
+no longer under development (not even close to finished)
