@@ -1,1 +1,1 @@
-## E-commerce *concept* site built in raw PHP
+## *PoC* E-commerce website built in PHP
